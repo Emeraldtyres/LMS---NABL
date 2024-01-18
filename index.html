@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - NABL</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2C3E50; /* Dark green background */
+            color: #fff;
+        }
+
+        header {
+            background-color: #000000; /* Darker green header */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            background-color: #228B22; /* Green for the section background */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto 20px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-align: center; /* Center the subheadings */
+            position: relative;
+        }
+
+        section:hover {
+            background-color: #006400; /* Darker green on hover */
+        }
+
+        .pdf-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #228B22; /* Green for the dropdown background */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1;
+            text-align: left;
+            width: 200px;
+        }
+
+        section:hover .pdf-dropdown {
+            display: block;
+        }
+
+        .pdf-dropdown a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        embed {
+            width: 80%;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LMS - NABL</h1>
+    </header>
+
+    <section id="Lab Management System Policy" class="pdf-section">
+        <h2>Lab Management System Policy</h2>
+        <div class="pdf-dropdown">
+            <a href="#" onclick="loadPDF('Lab Management System Policy1.pdf')">Subtopic 1</a>
+            <a href="#" onclick="loadPDF('Lab Management System Policy2.pdf')">Subtopic 2</a>
+            <!-- Add more subtopics as needed -->
+        </div>
+    </section>
+
+    <section id="LMS Manual" class="pdf-section">
+        <h2>LMS Manual</h2>
+        <div class="pdf-dropdown">
+            <a href="#" onclick="loadPDF('LMS Manual_subtopic_1.pdf')">Subtopic 1</a>
+            <a href="#" onclick="loadPDF('LMS Manual_subtopic_2.pdf')">Subtopic 2</a>
+            <!-- Add more subtopics as needed -->
+        </div>
+    </section>
+
+    <script>
+        function loadPDF(pdfFile) {
+            const embedElement = document.createElement('embed');
+            embedElement.src = pdfFile;
+            document.getElementById('pdf-container').innerHTML = '';
+            document.getElementById('pdf-container').appendChild(embedElement);
+        }
+    </script>
+
+    <div id="pdf-container"></div>
+
+</body>
+</html>
